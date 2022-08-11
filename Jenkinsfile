@@ -10,7 +10,7 @@ pipeline {
 		ARTIFACT_NAME = 'Dockerrun.aws.json'
 		AWS_S3_BUCKET = 'fatima-belt2-artifacts-12345677'
 		AWS_EB_APP_NAME = 'docker'
-        AWS_EB_ENVIRONMENT_NAME = 'docker-env'
+        AWS_EB_ENVIRONMENT_NAME = 'Docker-env'
         AWS_EB_APP_VERSION = "${BUILD_ID}"
         AWS_REGION = 'us-east-1'
 	}
@@ -19,7 +19,7 @@ pipeline {
 
 		stage('Build') {
 			steps {
-				sh 'docker build -t fatima/runway:latest .'
+				sh 'docker build -t fatima/runway .'
 			}
 		}
 
@@ -31,7 +31,7 @@ pipeline {
 
 		stage('Push') {
 			steps {
-				sh 'docker push fatima/runway:latest'
+				sh 'docker push fatima/runway'
 			}
 		}
 
