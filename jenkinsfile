@@ -28,12 +28,12 @@ pipeline{
 				sh 'docker push tome19290/runway:latest'
 			}
 		}
-
-        stage ("Logout") {
-            steps {
-                sh 'docker logout'
-            }
-        }
 	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+
 }
-	 
