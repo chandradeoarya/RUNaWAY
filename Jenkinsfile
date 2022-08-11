@@ -16,7 +16,7 @@ pipeline {
 
 		// AWS vars
 
-        S3_ARTIFACT_DOCKERRUN_FILE= credentials('AWS-DOCKERRUN-FILE')
+        S3_ARTIFACT_DOCKERRUN_FILE= 'Dockerrun.json'
 	AWS_S3_BUCKET             = 'almutaywia-belt2-artifacts-123456'
 	AWS_EB_APP_NAME           = 'beltexam-app-env'
         AWS_EB_ENVIRONMENT_NAME   = 'Beltexamappenv-env'
