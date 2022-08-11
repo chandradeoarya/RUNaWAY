@@ -715,7 +715,7 @@ function animate() {
 
     // draw the score
     ctx.fillText('Score: ' + score + 'm', canvas.width - 160, 30);
-    ctx.fillText('Name: ' + 'Chandra Arya', canvas.width - 160, 45);
+    ctx.fillText('Name: ' + 'fatima alsarar', canvas.width - 160, 45);
     ctx.fillText('Class: ' + 'DevOps online', canvas.width - 160, 60);
 
     // spawn a new Sprite
