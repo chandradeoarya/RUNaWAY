@@ -7,7 +7,7 @@ pipeline {
 		// Jenkins global credentials
 
         AWS_ACCESS_KEY_ID         = credentials('almutaywia-aws-secret-key-id')
-  		AWS_SECRET_ACCESS_KEY     = credentials('almutaywia-aws-secret-access-key')
+        AWS_SECRET_ACCESS_KEY     = credentials('almutaywia-aws-secret-access-key')
         DOCKERHUB_PASS_LOGIN      = credentials('almutaywia-dockerhub-token')
 
         // Docker hub user login
@@ -16,9 +16,9 @@ pipeline {
 
 		// AWS vars
 
-		S3_ARTIFACT_DOCKERRUN_FILE= 'Dockerrun.json'
-		AWS_S3_BUCKET             = 'almutaywia-belt2-artifacts-123456'
-		AWS_EB_APP_NAME           = 'beltexam-app-env'
+        S3_ARTIFACT_DOCKERRUN_FILE= 'Dockerrun.json'
+	AWS_S3_BUCKET             = 'almutaywia-belt2-artifacts-123456'
+	AWS_EB_APP_NAME           = 'beltexam-app-env'
         AWS_EB_ENVIRONMENT_NAME   = 'Beltexamappenv-env'
         AWS_EB_APP_VERSION        = "${BUILD_ID}"
         AWS_REGION                = 'us-east-1'
