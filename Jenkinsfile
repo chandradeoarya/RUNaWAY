@@ -35,9 +35,7 @@ pipeline {
 
 		stage('Login') {
 			steps {
-				sh 'docker login'
-				sh 'echo "$DOCKERHUB_USR_LOGIN"'
-				sh 'echo "$DOCKERHUB_PASS_LOGIN"'
+				sh 'docker login -u $DOCKERHUB_USR_LOGIN -p $DOCKERHUB_PASS_LOGIN'
 			}
 		}
 
