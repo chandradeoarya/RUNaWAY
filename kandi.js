@@ -1,4 +1,7 @@
 (function ($) {
+
+  
+
 // define variables
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -256,6 +259,7 @@ function Animation(spritesheet, frameSpeed, startFrame, endFrame) {
   };
 }
 
+
 /**
  * Create a parallax background
  */
@@ -382,7 +386,7 @@ var player = (function(player) {
 
   // jumping
   player.gravity   = 1;
-  player.dy        = 0;
+  player.dy        = 1;
   player.jumpDy    = -10;
   player.isFalling = false;
   player.isJumping = false;
@@ -417,10 +421,15 @@ var player = (function(player) {
     }
 
     jumpCounter = Math.max(jumpCounter-1, 0);
-
+    if (score == 100){
+      score ="Infinity score  !! ^_^  - ";
+      score = 100000000000
+      gameOver();
+      
+    }
     this.advance();
 
-    // add gravity
+     //add gravity
     if (player.isFalling || player.isJumping) {
       player.dy += player.gravity;
     }
@@ -525,7 +534,7 @@ function getType() {
  */
 function updateGround() {
   // animate ground
-  player.isFalling = true;
+  player.isFalling = false;
   for (var i = 0; i < ground.length; i++) {
     ground[i].update();
     ground[i].draw();
@@ -585,7 +594,7 @@ function updateEnvironment() {
 /**
  * Update all enemies position and draw. Also check for collision against the player.
  */
-function updateEnemies() {
+/*function updateEnemies() {
   // animate enemies
   for (var i = 0; i < enemies.length; i++) {
     enemies[i].update();
@@ -593,7 +602,7 @@ function updateEnemies() {
 
     // player ran into enemy
     if (player.minDist(enemies[i]) <= player.width - platformWidth/2) {
-      gameOver();
+     // gameOver();
     }
   }
 
@@ -642,7 +651,7 @@ function spawnSprites() {
     spawnEnvironmentSprites();
 
     // add random enemies
-    spawnEnemySprites();
+    //spawnEnemySprites();
   }
   // start over
   else {
@@ -711,12 +720,12 @@ function animate() {
     updateEnvironment();
     updatePlayer();
     updateGround();
-    updateEnemies();
+    //updateEnemies();
 
     // draw the score
-    ctx.fillText('Score: ' + score + 'm', canvas.width - 160, 30);
-    ctx.fillText('Name: ' + 'Chandra Arya', canvas.width - 160, 45);
-    ctx.fillText('Class: ' + 'DevOps online', canvas.width - 160, 60);
+    ctx.fillText('Score: ' + score , canvas.width - 160, 30);
+    ctx.fillText('Name: ' + 'Abdullah Almutaywia', canvas.width - 160, 45);
+    ctx.fillText('Class: ' + 'DevOps onsite', canvas.width - 160, 60);
 
     // spawn a new Sprite
     if (ticker % Math.floor(platformWidth / player.speed) === 0) {
@@ -845,7 +854,7 @@ function startGame() {
  * End the game and restart
  */
 function gameOver() {
-  stop = true;
+  stop = false;
   $('#score').html(score);
   $('#game-over').show();
   assetLoader.sounds.bg.pause();
@@ -853,7 +862,7 @@ function gameOver() {
   assetLoader.sounds.gameOver.play();
 }
 
-/**
+/** 
  * Click handlers for the different menu screens
  */
 $('.credits').click(function() {
@@ -901,3 +910,4 @@ $('.restart').click(function() {
 
 assetLoader.downloadAll();
 })(jQuery);
+

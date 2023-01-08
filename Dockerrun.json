@@ -1,0 +1,11 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "registry.hub.docker.com/abdullah01455/beltexam2_runwaygame:latest"
+    },
+    "Ports": [
+      {
+        "ContainerPort": 80
+      }
+    ]
+  }
